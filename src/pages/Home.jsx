@@ -4,17 +4,17 @@ import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
 import Process from '../components/Process/Process';
 import About from '../components/About/About';
-import Approach from '../components/Approach/Approach';
 import Services from '../components/Services/Services';
-import Immersive from '../components/Immersive/Immersive';
-import Audience from '../components/Audience/Audience';
 import FAQ from '../components/FAQ/FAQ';
 import CTA from '../components/CTA/CTA';
 import Footer from '../components/Footer/Footer';
 import MobileContact from '../components/MobileContact/MobileContact';
 import EditorialMarquee from '../components/EditorialMarquee/EditorialMarquee';
 import Credentials from '../components/Credentials/Credentials';
-import Journey from '../components/Journey/Journey';
+import Reviews from '../components/Reviews/Reviews';
+import Location from '../components/Location/Location';
+import BrandSignature from '../components/BrandSignature/BrandSignature';
+import Office from '../components/Office/Office';
 
 import { gsap, ScrollTrigger, useScrollScene } from '../lib/motion';
 
@@ -69,8 +69,7 @@ export default function Home() {
       <Navbar />
       <main id="conteudo" tabIndex={-1}>
         <Hero /><Process /><EditorialMarquee /><About /><Credentials />
-        <Approach /><Journey /><Services /><Immersive />
-        <Audience /><FAQ /><CTA />
+        <BrandSignature /><Services /><Office /><Reviews /><Location /><FAQ /><CTA />
       </main>
       <Footer /><MobileContact />
     </div>

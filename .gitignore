@@ -28,6 +28,9 @@ coverage/
 *.tmp
 *.temp
 *.swp
+test-results/
+playwright-report/
+.archive/
 
 
 .DS_Store

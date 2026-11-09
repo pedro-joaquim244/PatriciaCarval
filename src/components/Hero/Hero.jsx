@@ -1,11 +1,20 @@
 import { useRef } from 'react';
-import { images, site } from '../../config/site';
+import heroPhoto from '../../assets/optimized/doutora-imagem1.webp';
+import { profissional } from '../../data/profissional';
 import { gsap, useScrollScene } from '../../lib/motion';
-import ArrowLink from '../Shared/ArrowLink';
+import WhatsAppLink from '../Shared/WhatsAppLink';
 import CircularBadge from '../Shared/CircularBadge';
 import Photo from '../Shared/Photo';
 import FloralMark from '../Shared/FloralMark';
 import '../../styles/hero.css';
+
+const heroImage = {
+  src: heroPhoto,
+  width: 1254,
+  height: 1254,
+  alt: 'Retrato da psicóloga Patrícia Slonski usando roupa vermelha',
+  position: '50% 30%',
+};
 
 function animateHero({ desktop, reduced }, root) {
   if (reduced) return;
@@ -31,8 +40,8 @@ function animateHero({ desktop, reduced }, root) {
   timeline.to('.hero-copy', { y: -32, autoAlpha: 0, duration: 0.45, ease: 'none' }, 0)
     .to('.hero-meta, .photo-note, .hero-side-note, .hero-badge', { autoAlpha: 0, duration: 0.3, ease: 'none' }, 0)
     .to(photo, {
-      x: () => -photo.offsetLeft,
-      y: () => -photo.offsetTop,
+      x: () => root.getBoundingClientRect().left - photo.getBoundingClientRect().left,
+      y: () => root.getBoundingClientRect().top - photo.getBoundingClientRect().top,
       width: () => root.clientWidth,
       height: () => root.clientHeight,
       borderRadius: 0,
@@ -48,22 +57,28 @@ export default function Hero() {
   useScrollScene(ref, animateHero);
   return (
     <section id="inicio" ref={ref} className="hero" aria-labelledby="hero-title">
-      <div className="hero-copy">
-        <p className="eyebrow hero-eyebrow"><FloralMark /> PSICOLOGIA · ACOLHIMENTO · AUTOCONHECIMENTO</p>
-        <h1 id="hero-title">Um espaço para<br />se escutar com<br /><em>mais calma.</em></h1>
-        <p className="hero-description">A psicoterapia pode ser um espaço de pausa, compreensão e construção de novas possibilidades para sua vida.</p>
-        <div className="hero-actions"><ArrowLink className="button button-dark">Conheça os atendimentos</ArrowLink><a className="text-link" href="#sobre">Conheça meu trabalho <i className="bi bi-arrow-down" aria-hidden="true" /></a></div>
-        <ul className="hero-trust-list" aria-label="Informações do atendimento"><li><i className="bi bi-camera-video" aria-hidden="true" /> Online e presencial</li><li><i className="bi bi-geo-alt" aria-hidden="true" /> {site.location}</li></ul>
+      <div className="hero-layout">
+        <div className="hero-copy">
+          <p className="eyebrow hero-eyebrow"><FloralMark /> PSICÓLOGA · {profissional.crp} · CURITIBA</p>
+          <h1 id="hero-title" aria-label={profissional.hero.titulo}>
+            <span>{profissional.hero.tituloInicio} </span>
+            <em>{profissional.hero.tituloDestaque}</em>
+            <span> {profissional.hero.tituloFim}</span>
+          </h1>
+          <p className="hero-description">{profissional.hero.subtitulo}</p>
+          <div className="hero-actions"><WhatsAppLink className="arrow-link button button-dark"><span>Entre em contato</span><i className="bi bi-whatsapp" aria-hidden="true" /></WhatsAppLink><a className="text-link" href="#localizacao">Conheça o consultório <i className="bi bi-arrow-down" aria-hidden="true" /></a></div>
+          <ul className="hero-trust-list" aria-label="Informações profissionais"><li><i className="bi bi-camera-video" aria-hidden="true" /> Atendimento online e presencial</li><li><i className="bi bi-geo-alt" aria-hidden="true" /> {profissional.localizacao}</li></ul>
+        </div>
+        <figure className="hero-photo">
+          <Photo image={heroImage} loading="eager" fetchPriority="high" sizes="(max-width: 650px) 100vw, 50vw" />
+          <div className="hero-photo-shade" />
+        </figure>
       </div>
-      <figure className="hero-photo">
-        <Photo image={images.hero} loading="eager" fetchPriority="high" sizes="100vw" />
-        <div className="hero-photo-shade" />
-      </figure>
       <CircularBadge className="hero-badge" />
-      <span className="photo-note">Um lugar de pausa. Um encontro com você.</span>
+      <span className="photo-note">Patrícia Slonski · Psicóloga</span>
       <span className="hero-side-note" aria-hidden="true">PRESENÇA. ESCUTA. CUIDADO.</span>
       <div className="hero-photo-message" aria-hidden="true"><span className="eyebrow">SEU TEMPO. SEU ESPAÇO.</span><p>Você pode<br /><em>simplesmente ser.</em></p></div>
-      <div className="hero-meta"><span>{site.crp} <span className="meta-divider">/</span></span><a href="#processo">DESACELERE. CONTINUE A DESCOBRIR. <span className="scroll-circle"><i className="bi bi-arrow-down" aria-hidden="true" /></span></a><span className="hero-index">01 — 12</span></div>
+      <div className="hero-meta"><span>{profissional.crp} <span className="meta-divider">/</span> CURITIBA</span><a href="#processo">CONTINUE A CONHECER. <span className="scroll-circle"><i className="bi bi-arrow-down" aria-hidden="true" /></span></a><span className="hero-index">01 — 10</span></div>
     </section>
   );
 }

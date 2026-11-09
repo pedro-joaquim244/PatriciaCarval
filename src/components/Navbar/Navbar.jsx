@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { site } from '../../config/site';
+import { profissional } from '../../data/profissional';
 import SectionLink from '../Shared/SectionLink';
 import WhatsAppLink from '../Shared/WhatsAppLink';
 
 
 
-import ThemeToggle from '../Shared/ThemeToggle';
 import '../../styles/navbar.css';
 
-const links = [['Início', 'inicio'], ['Sobre', 'sobre'], ['Abordagem', 'abordagem'], ['Atendimento', 'atendimento'], ['FAQ', 'faq']];
+const links = [['Início', 'inicio'], ['Sobre', 'sobre'], ['Atendimento', 'atendimento'], ['Consultório', 'consultorio'], ['Localização', 'localizacao']];
 
 export default function Navbar() {
 
@@ -66,19 +65,18 @@ export default function Navbar() {
     <header ref={headerRef} className={`site-header ${scrolled ? 'is-scrolled' : ''} ${open ? 'menu-open' : ''}`}>
       <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
       <div className="page-container header-inner">
-        <SectionLink section="inicio" className="brand" aria-label={`${site.name}, início`} onClick={() => setOpen(false)}>
-          <span className="brand-monogram" aria-hidden="true">h<span>m</span></span>
-          <span className="brand-copy"><span>{site.name}</span><small>PSICOLOGIA & ESCUTA</small></span>
+        <SectionLink section="inicio" className="brand" aria-label={`${profissional.nome}, início`} onClick={() => setOpen(false)}>
+          <span className="brand-monogram" aria-hidden="true">{profissional.iniciais[0].toLowerCase()}<span>{profissional.iniciais[1].toLowerCase()}</span></span>
+          <span className="brand-copy"><span>{profissional.nomeCurto}</span><small>PSICÓLOGA</small></span>
         </SectionLink>
         <div className="header-controls">
-          <ThemeToggle />
           <button ref={toggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" aria-label={open ? 'Fechar menu' : 'Abrir menu'} onClick={() => setOpen(!open)}>
             <span /> <span />
           </button>
         </div>
         <nav id="main-navigation" className={`main-navigation ${open ? 'is-open' : ''}`} aria-label="Navegação principal">
           {links.map(([label, id]) => <SectionLink key={id} section={id} aria-current={active === id ? 'location' : undefined} onClick={() => setOpen(false)}>{label}</SectionLink>)}
-          <WhatsAppLink className="arrow-link header-cta" onClick={() => setOpen(false)}><span>Entre em contato</span><i className="bi bi-whatsapp" aria-hidden="true" /></WhatsAppLink>
+          <WhatsAppLink className="arrow-link header-cta" onClick={() => setOpen(false)}><span>Agendar pelo WhatsApp</span><i className="bi bi-whatsapp" aria-hidden="true" /></WhatsAppLink>
         </nav>
       </div>
       <span className="reading-progress" aria-hidden="true" />

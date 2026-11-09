@@ -1,39 +1,50 @@
-﻿import { useState } from 'react';
-import { images, site } from '../../config/site';
-import ArrowLink from '../Shared/ArrowLink';
-import Photo from '../Shared/Photo';
+import { profissional } from '../../data/profissional';
 import SectionLabel from '../Shared/SectionLabel';
+import WhatsAppLink from '../Shared/WhatsAppLink';
 import '../../styles/services.css';
 
-const services = [
-  { title: 'presencial', icon: 'bi-door-open', text: 'Sessões realizadas em um ambiente reservado, confortável e acolhedor.', location: site.location, locationIcon: 'bi-geo-alt', image: images.inPerson, caption: 'Um lugar para chegar com calma.' },
-  { title: 'online', icon: 'bi-laptop', text: 'Atendimento por videochamada, permitindo que o processo terapêutico aconteça de onde você estiver.', location: 'Cuidado que atravessa distâncias', locationIcon: 'bi-globe2', image: images.online, caption: 'Presença, mesmo à distância.' },
+const informationCards = [
+  {
+    icon: 'bi-door-open',
+    title: 'Atendimento presencial',
+    text: 'Encontros realizados no consultório profissional de Patrícia Slonski, no bairro Sítio Cercado, em Curitiba.',
+    detail: 'Curitiba — Paraná',
+  },
+  {
+    icon: 'bi-camera-video',
+    title: 'Atendimento online',
+    text: 'Modalidade confirmada para quem busca realizar o atendimento a distância. Consulte disponibilidade e orientações pelo WhatsApp.',
+    detail: 'Informações no contato inicial',
+  },
+  {
+    icon: 'bi-chat-heart',
+    title: 'Primeiro contato',
+    text: 'Converse diretamente com Patrícia para esclarecer dúvidas sobre horários, formatos e como funciona o início do atendimento.',
+    detail: profissional.telefone,
+  },
 ];
 
 export default function Services() {
-  const [active, setActive] = useState(0);
   return (
     <section id="atendimento" className="services-section section-space page-container" aria-labelledby="services-title">
-      <div className="section-intro row g-0"><SectionLabel number="05" className="col-lg-4" data-reveal>ATENDIMENTO</SectionLabel><h2 id="services-title" className="display-title col-lg-8" data-reveal>Um espaço que pode<br />acompanhar você<br /><em>onde estiver.</em></h2></div>
-      <div className="services-editorial service-list">
-        {services.map((service, index) => (
-          <article className={`service-row ${active === index ? 'is-active' : ''}`} key={service.title} onPointerEnter={() => setActive(index)} onFocus={() => setActive(index)}>
-            <figure className="services-preview">
-              <Photo image={service.image} className={active === index ? 'is-active' : ''} sizes="(max-width: 650px) 100vw, (max-width: 1600px) 45vw, 650px" />
-              <figcaption>{service.caption}</figcaption>
-            </figure>
-            <div className="service-content">
-              <span className="service-number" aria-hidden="true">0{index + 1}</span>
-              <div className="service-title"><h3>Psicoterapia<br /><em>{service.title}</em></h3><i className={`bi ${service.icon}`} aria-hidden="true" /></div>
-              <div className="service-description"><p>{service.text}</p><span className="service-location"><i className={`bi ${service.locationIcon}`} aria-hidden="true" /> {service.location}</span></div>
-              <ArrowLink href="#contato" className="service-link" aria-label={`Saiba mais para psicoterapia ${service.title}`}>Saiba mais</ArrowLink>
-            </div>
+      <div className="section-intro row g-0">
+        <SectionLabel number="05" className="col-lg-4" data-reveal>ATENDIMENTOS</SectionLabel>
+        <h2 id="services-title" className="display-title col-lg-8" data-reveal>Online ou presencial,<br />o primeiro passo é<br /><em>uma conversa.</em></h2>
+      </div>
+      <div className="service-info-grid">
+        {informationCards.map((card, index) => (
+          <article className="service-info-card" data-reveal key={card.title}>
+            <span className="service-number" aria-hidden="true">0{index + 1}</span>
+            <i className={`bi ${card.icon}`} aria-hidden="true" />
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
+            <span className="service-card-detail">{card.detail}</span>
           </article>
         ))}
       </div>
       <div className="services-booking-cta" data-reveal>
-        <div><span className="eyebrow">PRÓXIMO PASSO</span><p>Escolha um horário disponível e confirme a modalidade que faz sentido para você.</p></div>
-        <ArrowLink href="#contato" className="button button-dark">Saiba mais</ArrowLink>
+        <div><span className="eyebrow">INFORMAÇÕES PROFISSIONAIS</span><p>Abordagem terapêutica, formação e públicos atendidos serão adicionados após confirmação direta com a profissional.</p></div>
+        <WhatsAppLink className="arrow-link button button-dark"><span>Falar com Patrícia</span><i className="bi bi-whatsapp" aria-hidden="true" /></WhatsAppLink>
       </div>
     </section>
   );

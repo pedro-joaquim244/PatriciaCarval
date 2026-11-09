@@ -22,25 +22,6 @@
       }
     ]
   },
-  "retrato": {
-    "src": "images/optimized/retrato-1122.webp",
-    "width": 1122,
-    "height": 1402,
-    "variants": [
-      {
-        "src": "images/optimized/retrato-480.webp",
-        "width": 480
-      },
-      {
-        "src": "images/optimized/retrato-960.webp",
-        "width": 960
-      },
-      {
-        "src": "images/optimized/retrato-1122.webp",
-        "width": 1122
-      }
-    ]
-  },
   "escuta": {
     "src": "images/optimized/escuta-1448.webp",
     "width": 1448,

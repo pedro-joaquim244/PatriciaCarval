@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { ScrollTrigger } from '../../lib/motion';
 import SectionLabel from '../Shared/SectionLabel';
+import { profissional } from '../../data/profissional';
 import '../../styles/faq.css';
 
 const questions = [
-  ['Como funciona a primeira sessão?', 'É um primeiro encontro para nos conhecermos. Você pode compartilhar o que motivou sua busca, falar sobre suas expectativas e tirar dúvidas sobre o processo. Não é preciso preparar um roteiro: a conversa acontece no seu ritmo.'],
-  ['Quanto tempo dura uma sessão?', 'Em geral, as sessões têm duração aproximada de 50 minutos. Os detalhes de duração e formato são combinados no contato inicial, de acordo com o atendimento.'],
-  ['O atendimento pode ser online?', 'Sim. O atendimento online acontece por videochamada, em horário previamente combinado. Você precisará de uma conexão estável e de um espaço reservado, onde se sinta à vontade para conversar.'],
-  ['Com qual frequência acontecem as sessões?', 'Os encontros costumam ser semanais, mas a frequência é conversada e definida em conjunto, considerando suas necessidades e as particularidades do processo.'],
-  ['Como faço para agendar?', 'Você pode escolher uma data e um horário disponíveis na agenda do site. Se preferir conversar antes de reservar, há uma opção de WhatsApp ao final da página.'],
+  ['Onde fica o consultório?', `Na ${profissional.endereco.textoCompleto}. O botão de localização abre o perfil público no Google Maps.`],
+  ['Quais são os horários de funcionamento?', `${profissional.funcionamentoConfirmado} Os demais dias e horários devem ser confirmados diretamente pelo WhatsApp antes da visita.`],
+  ['Há atendimento online?', 'Sim. As modalidades online e presencial estão confirmadas. Entre em contato com Patrícia para consultar disponibilidade e orientações para cada formato.'],
+  ['Quais especialidades são atendidas?', 'As especialidades, a abordagem terapêutica e os públicos atendidos ainda não foram confirmados para publicação neste site.'],
+  ['Como posso entrar em contato?', `Use os botões de WhatsApp do site para enviar uma mensagem ao número profissional ${profissional.telefone}.`],
 ];
 
 export default function FAQ() {
@@ -31,7 +32,7 @@ export default function FAQ() {
     <section id="faq" className="faq-section section-space page-container" aria-labelledby="faq-title">
       <div className="row g-0 justify-content-between">
         <div className="col-lg-5">
-          <SectionLabel number="08" data-reveal>DÚVIDAS FREQUENTES</SectionLabel>
+          <SectionLabel number="09" data-reveal>DÚVIDAS FREQUENTES</SectionLabel>
           <h2 id="faq-title" className="display-title" data-reveal>Antes de começar,<br />algumas dúvidas<br />são <em>naturais.</em></h2>
           <p className="faq-intro" data-reveal>Conhecer o processo também<br />faz parte de se sentir à vontade.</p>
         </div>

@@ -2,17 +2,9 @@ import { useRef, useState } from 'react';
 import SectionLabel from '../Shared/SectionLabel';
 import WhatsAppLink from '../Shared/WhatsAppLink';
 import AudienceItem from './AudienceItem';
+import { profissional } from '../../data/profissional';
 
-const topics = [
-  { title: 'Ansiedade', description: 'Preocupações frequentes, tensão e dificuldade de desacelerar. A psicoterapia pode ajudar a compreender esses padrões e construir novas formas de lidar com eles.' },
-  { title: 'Autoconhecimento', description: 'Um espaço para compreender melhor emoções, comportamentos, escolhas e padrões que fazem parte da sua história.' },
-  { title: 'Relacionamentos', description: 'Compreender vínculos, limites, conflitos e formas de se relacionar consigo e com outras pessoas.' },
-  { title: 'Mudanças de vida', description: 'Acolhimento durante transições, perdas, recomeços e novos ciclos que podem gerar insegurança ou desconforto.' },
-  { title: 'Autoestima', description: 'Um processo de reconstrução da forma como você se percebe, se valoriza e se posiciona nas relações e na vida.' },
-  { title: 'Sobrecarga emocional', description: 'Quando responsabilidades, sentimentos e cobranças parecem difíceis de sustentar sozinha.' },
-  { title: 'Dificuldades profissionais', description: 'Questões relacionadas ao trabalho, cobranças, inseguranças, decisões, mudanças de carreira e propósito.' },
-  { title: 'Processos de decisão', description: 'Um espaço para organizar pensamentos, compreender possibilidades e tomar decisões com mais clareza.' },
-];
+const topics = profissional.camposPendentes;
 
 export default function Audience() {
   const [opened, setOpened] = useState(null);
@@ -28,19 +20,19 @@ export default function Audience() {
     <section className="audience-section section-space page-container" aria-labelledby="audience-title">
       <div className="row g-0 justify-content-between">
         <div className="col-lg-6">
-          <SectionLabel number="07" data-reveal>PARA QUEM É</SectionLabel>
-          <h2 id="audience-title" className="display-title" data-reveal>Talvez seja hora de<br />olhar com mais<br />atenção para <em>você.</em></h2>
-          <p className="audience-description" data-reveal>A psicoterapia pode ajudar pessoas que estejam passando por momentos de:</p>
+          <SectionLabel number="07" data-reveal>PRÓXIMAS ATUALIZAÇÕES</SectionLabel>
+          <h2 id="audience-title" className="display-title" data-reveal>Um espaço pronto<br />para receber os<br /><em>dados definitivos.</em></h2>
+          <p className="audience-description" data-reveal>Estes campos permanecem reservados até que as informações profissionais sejam confirmadas:</p>
         </div>
         <div className="col-lg-5">
           <ul className="audience-list">
-            {topics.map((topic, index) => <AudienceItem key={topic.title} topic={topic} index={index} opened={opened === index}
+            {topics.map((topic, index) => <AudienceItem key={topic.titulo} topic={{ title: topic.titulo, description: topic.descricao }} index={index} opened={opened === index}
               buttonRef={element => { buttons.current[index] = element; }}
               onToggle={() => setOpened(current => current === index ? null : index)}
               onKeyDown={event => navigateTopics(event, index)} />)}
           </ul>
-          <p className="audience-footnote">Cada pessoa tem uma história. O cuidado começa ao reconhecer a sua.</p>
-          <WhatsAppLink className="text-link audience-cta">Agendar uma conversa <i className="bi bi-whatsapp" aria-hidden="true" /></WhatsAppLink>
+          <p className="audience-footnote">Nenhum dado pendente é apresentado como fato nesta demonstração.</p>
+          <WhatsAppLink className="text-link audience-cta">Falar com Patrícia <i className="bi bi-whatsapp" aria-hidden="true" /></WhatsAppLink>
         </div>
       </div>
     </section>

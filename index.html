@@ -8,43 +8,51 @@
       content="width=device-width, initial-scale=1.0"
     />
 
-    <meta name="theme-color" content="#F3F1EA" />
-
-    <script>
-      (() => {
-        try {
-          const stored = localStorage.getItem('psicologa_tema');
-          const theme = stored === 'light' || stored === 'dark'
-            ? stored
-            : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          document.documentElement.dataset.theme = theme;
-          document.documentElement.style.colorScheme = theme;
-          document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#0b0b0c' : '#f3f1ea';
-        } catch {
-          document.documentElement.dataset.theme = 'light';
-        }
-      })();
-    </script>
+    <meta name="theme-color" content="#FAF8FC" />
 
     <meta
       name="description"
-      content="Um espaço de escuta, acolhimento e autoconhecimento. Conheça o trabalho da psicóloga Helena Martins, com atendimento presencial em Ribeirão Preto e online."
+      content="Conheça o trabalho da psicóloga Patrícia Slonski e encontre informações de contato e localização do consultório no Sítio Cercado, em Curitiba."
     />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://pedro-joaquim244.github.io/Psicologa/" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Helena Martins | Psicologia & Escuta" />
-    <meta property="og:description" content="Psicoterapia presencial em Ribeirão Preto e online, com um espaço de escuta e acolhimento." />
-    <meta property="og:url" content="https://pedro-joaquim244.github.io/Psicologa/" />
-    <meta property="og:image" content="https://pedro-joaquim244.github.io/Psicologa/images/og-helena-martins.jpg" />
+    <meta property="og:title" content="Psicóloga Patrícia Slonski | Curitiba — PR" />
+    <meta property="og:description" content="Informações profissionais, contato e localização do consultório de Patrícia Slonski em Curitiba." />
+    <meta property="og:image" content="%BASE_URL%images/og-patricia-slonski.jpg" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Sala acolhedora para atendimento psicológico" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:image:alt" content="Identidade visual oficial de Patrícia Slonski, psicóloga" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Helena Martins | Psicologia & Escuta" />
-    <meta name="twitter:description" content="Psicoterapia presencial em Ribeirão Preto e online, com um espaço de escuta e acolhimento." />
-    <meta name="twitter:image" content="https://pedro-joaquim244.github.io/Psicologa/images/og-helena-martins.jpg" />
+    <meta name="twitter:title" content="Psicóloga Patrícia Slonski | Curitiba — PR" />
+    <meta name="twitter:description" content="Informações profissionais, contato e localização do consultório de Patrícia Slonski em Curitiba." />
+    <meta name="twitter:image" content="%BASE_URL%images/og-patricia-slonski.jpg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Psicóloga Patrícia Slonski",
+        "description": "Consultório de psicologia em Curitiba, Paraná.",
+        "telephone": "+55 41 99550-5016",
+        "identifier": "CRP 08/24593",
+        "sameAs": "https://www.google.com/maps/search/?api=1&query=Psic%C3%B3loga%20Patr%C3%ADcia%20Slonski&query_place_id=ChIJEWeQIbz73JQRgSwTu7QRSQg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua São José dos Pinhais, 196/190, sala 05, 1º andar",
+          "addressLocality": "Curitiba",
+          "addressRegion": "PR",
+          "postalCode": "81910-010",
+          "addressCountry": "BR"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "4",
+          "bestRating": "5"
+        }
+      }
+    </script>
 
     <link
       rel="icon"
@@ -64,11 +72,11 @@
     />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <title>Helena Martins — Psicologia & Escuta</title>
+    <title>Psicóloga Patrícia Slonski | Curitiba — PR</title>
   </head>
 
   <body>

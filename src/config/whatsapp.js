@@ -1,10 +1,10 @@
-// Número profissional em formato internacional: DDI + DDD + número.
-export const WHATSAPP_NUMBER = '5516994475790';
+import { profissional } from '../data/profissional';
 
-export const WHATSAPP_MESSAGE = 'Olá, Dra. Helena! Tudo bem? Conheci seu site e gostaria de saber mais sobre os atendimentos e como funciona a primeira consulta.';
+export const WHATSAPP_NUMBER = profissional.whatsapp;
+export const WHATSAPP_MESSAGE = profissional.whatsappMessage;
 
-export function getWhatsAppUrl() {
+export function getWhatsAppUrl(message = WHATSAPP_MESSAGE) {
   const number = WHATSAPP_NUMBER.replace(/\D/g, '');
   if (!/^55\d{10,11}$/.test(number)) return null;
-  return `https://wa.me/${number}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }

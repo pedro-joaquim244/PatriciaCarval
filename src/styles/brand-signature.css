@@ -1,0 +1,10 @@
+.brand-signature { background: var(--color-lavender-soft); }
+.brand-signature-intro { display: flex; align-items: end; justify-content: space-between; gap: var(--content-gap-large); margin-bottom: var(--content-gap-large); }
+.brand-signature-intro > h2 { max-width: 520px; font-family: var(--serif); font-size: clamp(2rem, 3.3vw, 3.5rem); line-height: 1.08; letter-spacing: -.03em; text-wrap: balance; }
+.brand-banner { overflow: hidden; border: 1px solid var(--color-border-dark); border-radius: 28px; box-shadow: 0 28px 70px var(--color-shadow); background: var(--color-primary-dark); }
+.brand-banner img { width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: contain; }
+@media (max-width: 700px) {
+  .brand-signature-intro { align-items: flex-start; flex-direction: column; }
+  .brand-banner { border-radius: 18px; }
+}
+
